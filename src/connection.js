@@ -1,7 +1,7 @@
 //https://www.npmjs.com/package/@adiwajshing/baileys?activeTab=readme
 //https://www.youtube.com/watch?v=GGm9zx_f8KA
 
-const{default: makeWASocket, DisconnectReason} = require('@adiwajshing/baileys'); //função para instanciar uma nova conexão com o zap
+const{default: makeWASocket, DisconnectReason, useMultiFileAuthState } = require('@adiwajshing/baileys'); //função para instanciar uma nova conexão com o zap
 
 //função para conectar
 async function connect(){
