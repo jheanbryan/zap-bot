@@ -3,7 +3,7 @@ const { extractDataMessage, downloadImage } = require("../utils");
 const path = require('path');
 const { exec } = require('child_process');
 const fs = require('fs');
-const ffmpegPath = 'C:/ffmpeg/bin/ffmpeg.exe'; //caminho do ffmpeg no pc
+const peg = 'C:/ffmpeg/bin/ffmpeg'; //caminho do ffmpeg no pc
 
 class Actions{
 
@@ -22,22 +22,28 @@ class Actions{
             return
         }
 
+        console.log('\né uma imagem sim')
         const inputPath = await downloadImage(this.baileysMessage, 'input');
         const outputPath = path.resolve(TEMP_FOLDER, 'output.webp');
 
-        exec(`${ffmpegPath} -i "${inputPath}" -vf scale=512:512 "${outputPath}"`, async (error)  =>{
+        console.log('\n vou executar o exec agora')
+        //falta fazer o tratamento de scale da figurinha
+        exec(`${peg} -i ${inputPath} -vf scale=512:512 ${outputPath}`, async (error)  =>{
+
             if (error){
+                console.log('\n deu erro')
                 await this.bot.sendMessage(this.remoteJid, { text: `${BOT_EMOJI} ❌ ERRO! Não foi possível converter imagem para figurinha!` });
                 console.log(error);
                 return
             }
 
+            console.log('\n so falta eu mandar, pera ai')
             await this.bot.sendMessage(this.remoteJid, {
-                sticker: { url: outputPath }
+                sticker: { url: outputPath },
             });
 
-            //fs.unlinkSync(inputPath);
-           //fs.unlinkSync(outputPath);
+            fs.unlinkSync(inputPath);
+            fs.unlinkSync(outputPath);
         })
     }
 }
