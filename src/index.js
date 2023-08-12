@@ -1,6 +1,10 @@
-const connect = require('./connection') //importando a função connect
+const { connect } = require("./connection");
+const middlewares = require('./middlewares');
 
-async function start(){
-    const bot = await connect();
+async function start() {
+  console.log('estartandoo\n')
+  const bot = await connect();
+  await middlewares(bot);
 }
+
 start();
