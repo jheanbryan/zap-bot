@@ -30,14 +30,11 @@ async function middlewares(bot){
             case 'ping':
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} pong!`});
                 break;
-            case 'haduken':
-                await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/bom-dia-haduken.mp3" }, mimetype: 'audio/mp4' });
+            case 'audio1':
+                await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/audio1.mp3" }, mimetype: 'audio/mp4' });
                 break;
-            case 'rodri1':
-                await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/rodri1.mp3" }, mimetype: 'audio/mp4' });
-                break;
-            case 'repo':
-                await bot.sendMessage(remoteJid, { text: `${repo}`});
+            case 'audio2':
+                await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/audio2.mp3" }, mimetype: 'audio/mp4' });
                 break;
             default:
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} Digite um Comando Válido!\n(Digite /menu para saber mais comandos)`});         
