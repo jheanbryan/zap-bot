@@ -14,36 +14,36 @@ function generateMenu(){
 
     //menu de opções
     const menu = `${BOT_EMOJI}
-    ╭━━⪩ BEM VINDO! ⪨━━
-    ▢
-    ▢ • BRYAN_BOT
-    ▢ • Data: ${formattedDate}
-    ▢ • Hora: ${formattedTime}
-    ▢ • Prefixo: /
-    ▢
-    ╰━━─「🪐」─━━
+╭━━⪩ BEM VINDO! ⪨━━
+▢
+▢ • BRYAN_BOT
+▢ • Data: ${formattedDate}
+▢ • Hora: ${formattedTime}
+▢ • Prefixo: /
+▢
+╰━━─「🪐」─━━
 
-    ╭━━⪩ COMANDOS GERAIS ℹ ⪨━━
-    ▢
-    ▢ •/menu  => Menu geral de comandos
-    ▢ •/ping  => Testar se o bot está online
-    ▢ •/s     => Retorna uma figurinha ao marcar uma imagem
-    ▢
-    ╰━━─「🚀」─━━
+╭━━⪩ COMANDOS GERAIS ℹ ⪨━━
+▢
+▢ •/menu  => Menu geral de comandos
+▢ •/ping  => Testar se o bot está online
+▢ •/s     => Retorna uma figurinha ao marcar uma imagem
+▢
+╰━━─「🚀」─━━
 
-    ╭━━⪩ COMANDOS DE AUDIOS 🔊 ⪨━━
-    ▢
-    ▢ •/audio1 => Bom dia HADUKEN
-    ▢ •/audio2 => Quem você pensa que é?
-    ▢
-    ╰━━─「🌍」─━━
+╭━━⪩ COMANDOS DE AUDIOS 🔊 ⪨━━
+▢
+▢ •/audio1 => Bom dia HADUKEN
+▢ •/audio2 => Quem você pensa que é?
+▢ •/musica (link do youtube) => Baixa uma música do YouTube
+╰━━─「🌍」─━━
 
-    ╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━
-    ▢
-    ▢ • Meu repositório: ${repo}
-    ▢
-    ╰━━─「🎇」─━━
-    `;
+╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━
+▢
+▢ • Meu repositório: ${repo}
+▢
+╰━━─「🎇」─━━
+`;
 
     return menu
 }

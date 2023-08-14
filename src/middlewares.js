@@ -7,18 +7,15 @@ const { generate } = require('qrcode-terminal');
 
 async function middlewares(bot){
     bot.ev.on('messages.upsert', async ({ messages, type }) => {
-        console.log('Olha a mensagem\n');
         console.log(messages);
-
         const baileysMessage = messages[0]; //pegar apenas a mensagem
-        
+
         if(!baileysMessage?.message || !isCommand(baileysMessage)){
             return
         }
 
         const actions = new Actions(bot, baileysMessage);
-
-        const { command, remoteJid } = extractDataMessage(baileysMessage)
+        const { command, remoteJid, args } = extractDataMessage(baileysMessage)
 
         switch (command.toLowerCase()) {
             case 'menu':
@@ -28,6 +25,17 @@ async function middlewares(bot){
             case 's':
                 console.log('\n figurinhaaaa')
                 await actions.sticker();
+                break;
+            case 'musica':
+            case 'música':
+                if (args) {
+                    const url = args;
+                    // Lógica para processar a URL, como baixar música ou qualquer outra ação
+                    console.log('URL:', url);
+                    await actions.downloadAudio(url);
+                  } else {
+                    await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} Comando /musica requer uma URL válida.` });
+                  }
                 break;
             case 'ping':
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} pong!`});

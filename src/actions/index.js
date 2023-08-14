@@ -4,6 +4,7 @@ const path = require('path');
 const { exec } = require('child_process');
 const fs = require('fs');
 const peg = 'C:/ffmpeg/bin/ffmpeg'; //caminho do ffmpeg no pc
+const ytdl = require('ytdl-core');
 
 class Actions{
 
@@ -16,6 +17,7 @@ class Actions{
         this.isImage = isImage;
     }
 
+    //Figurinhas
     async sticker(){
         if (!this.isImage){
             await this.bot.sendMessage(this.remoteJid, { text: `${BOT_EMOJI} ❌ ERRO! Você precisa enviar uma imagem!` });
@@ -45,6 +47,35 @@ class Actions{
             fs.unlinkSync(inputPath);
             fs.unlinkSync(outputPath);
         })
+    }
+
+    //Baixar musicas
+    // Função para baixar o áudio e salvar em um arquivo
+    async downloadAudio(url) {
+        // URL do vídeo do YouTube
+        const videoURL = url;
+
+        // Opções para baixar apenas o áudio
+        const options = {
+            quality: 'highestaudio',
+            filter: 'audioonly',
+        };
+
+        try {
+            const info = await ytdl.getInfo(videoURL);
+            const title = info.videoDetails.title;
+            const audioStream = ytdl(videoURL, options);
+
+            audioStream.pipe(fs.createWriteStream(`music.mp3`));
+
+            audioStream.on('end', () => {
+            console.log('Download concluído.');
+            this.bot.sendMessage(this.remoteJid, { audio: { url: `./music.mp3` }, mimetype: 'audio/mp4' });  
+            });
+        } catch (error) {
+            console.error('Erro ao baixar o áudio:', error);
+        }
+
     }
 }
 
