@@ -50,7 +50,6 @@ class Actions{
     }
 
     //Baixar musicas
-    // Função para baixar o áudio e salvar em um arquivo
     async downloadAudio(url) {
         // URL do vídeo do YouTube
         const videoURL = url;
@@ -69,8 +68,7 @@ class Actions{
             audioStream.pipe(fs.createWriteStream(`music.mp3`));
 
             audioStream.on('end', () => {
-            console.log('Download concluído.');
-            this.bot.sendMessage(this.remoteJid, { audio: { url: `./music.mp3` }, mimetype: 'audio/mp4' });  
+            this.bot.sendMessage(this.remoteJid, { audio: { url: `./music.mp3` }, mimetype: 'audio/mp4' }); 
             });
         } catch (error) {
             console.error('Erro ao baixar o áudio:', error);
