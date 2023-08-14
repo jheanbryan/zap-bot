@@ -1,7 +1,17 @@
 # zap-bot
-Bot Whatssap
+Bot Whatssap feito usando como base a API do Baileys <br>
 
-<h2>Comandos Aceitos</h2> 
+## Dependências
+<ul>
+    <li>@adiwajshing/baileys</li>
+    <li>@hapi/boom</li>
+    <li>@whiskeysockets/bailey</li>
+    <li>curl</li>
+    <li>qrcode-terminal</li>
+    <li>ytdl</li>
+</ul> 
+
+## Comandos Aceitos
 
 | Comando |Ação |
 | ------------ | :----------: |
@@ -11,3 +21,5 @@ Bot Whatssap
 | /audio1 | Retorna um audio de Bom Dia|
 | /audio2 | Retorna um audio do Rodrigo Goes|
 | /musica | Baixa uma música do youtube (deve ser passado o link da música depois do comando) |
+
+<img align="center" alt="exemplo do menu do bot" src="assets/example-menu-bot.png">
