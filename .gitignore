@@ -1,6 +1,4 @@
-
-assets/auth/baileys
-assets/auth/baileys/
-assets/auth
+src/assets/auth/baileys
+src/assets/auth/baileys/
+src/assets/auth
 assets/auth/
-assets/temp

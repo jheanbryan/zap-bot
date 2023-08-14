@@ -1,7 +1,8 @@
 const { isCommand, extractDataMessage } = require('../src/utils/index');
 const { BOT_EMOJI } = require('./config');
 const Actions = require('./actions/index');
-const { menu, repo } = require('../src/utils/menu');
+const { generateMenu } = require('../src/utils/menu');
+const { generate } = require('qrcode-terminal');
 
 
 async function middlewares(bot){
@@ -21,6 +22,7 @@ async function middlewares(bot){
 
         switch (command.toLowerCase()) {
             case 'menu':
+                const menu = generateMenu()
                 await bot.sendMessage(remoteJid, {text: `${menu}`});
                 break
             case 's':

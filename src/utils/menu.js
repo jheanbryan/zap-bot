@@ -1,39 +1,53 @@
 const { BOT_EMOJI } = require('../config');
 const repo ='https://github.com/jheanbryan/zap-bot';
-let date = new Date();
 
-//menu de opções
-const menu = `${BOT_EMOJI}
-╭━━⪩ BEM VINDO! ⪨━━
-▢
-▢ • BRYAN_BOT
-▢ • Data: ${date.toLocaleDateString("pt-br")}
-▢ • Hora: ${date.toLocaleTimeString("pt-br")}
-▢ • Prefixo: /
-▢
-╰━━─「🪐」─━━
+// Função para obter a data e hora atual formatada
+function getCurrentDateTime() {
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString("pt-br");
+    const formattedTime = date.toLocaleTimeString("pt-br");
+    return { formattedDate, formattedTime };
+  }
 
-╭━━⪩ COMANDOS GERAIS ℹ ⪨━━
-▢
-▢ •/menu  => Menu geral de comandos
-▢ •/ping  => Testar se o bot está online
-▢ •/s     => Retorna uma figurinha ao marcar uma imagem
-▢
-╰━━─「🚀」─━━
+function generateMenu(){
+    const { formattedDate, formattedTime } = getCurrentDateTime();
 
-╭━━⪩ COMANDOS DE AUDIOS 🔊 ⪨━━
-▢
-▢ •/audio1 => Bom dia HADUKEN
-▢ •/audio2 => Quem você pensa que é?
-▢
-╰━━─「🌍」─━━
+    //menu de opções
+    const menu = `${BOT_EMOJI}
+    ╭━━⪩ BEM VINDO! ⪨━━
+    ▢
+    ▢ • BRYAN_BOT
+    ▢ • Data: ${formattedDate}
+    ▢ • Hora: ${formattedTime}
+    ▢ • Prefixo: /
+    ▢
+    ╰━━─「🪐」─━━
 
-╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━
-▢
-▢ • Meu repositório: ${repo}
-▢
-╰━━─「🎇」─━━
-`;
+    ╭━━⪩ COMANDOS GERAIS ℹ ⪨━━
+    ▢
+    ▢ •/menu  => Menu geral de comandos
+    ▢ •/ping  => Testar se o bot está online
+    ▢ •/s     => Retorna uma figurinha ao marcar uma imagem
+    ▢
+    ╰━━─「🚀」─━━
+
+    ╭━━⪩ COMANDOS DE AUDIOS 🔊 ⪨━━
+    ▢
+    ▢ •/audio1 => Bom dia HADUKEN
+    ▢ •/audio2 => Quem você pensa que é?
+    ▢
+    ╰━━─「🌍」─━━
+
+    ╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━
+    ▢
+    ▢ • Meu repositório: ${repo}
+    ▢
+    ╰━━─「🎇」─━━
+    `;
+
+    return menu
+}
+
 module.exports = {
-    menu
+    generateMenu
 }
