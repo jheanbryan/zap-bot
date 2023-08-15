@@ -21,14 +21,14 @@ async function middlewares(bot){
             case 'menu':
                 const menu = generateMenu()
                 await bot.sendMessage(remoteJid, {text: `${menu}`});
-                break
+                break;
             case 's':
                 console.log('\n figurinhaaaa')
                 await actions.sticker();
                 break;
             case 'cep':
                 await actions.consultCep(args);
-                break
+                break;
             case 'musica':
             case 'música':
                 if (args) {
@@ -48,6 +48,9 @@ async function middlewares(bot){
                 break;
             case 'audio2':
                 await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/audio2.mp3" }, mimetype: 'audio/mp4' });
+                break;
+            case 'sobre':
+                await bot.sendMessage(remoteJid, { text: `Olá 🖐, Sou um bot desenvolvido a partir da linguagem JavaScript, ainda não possuo a capacidade de pensar e entender frases, mas posso te ajudar com algumas coisas, basta digitar: '/menu' para saber mais...`}); 
                 break;
             default:
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} Digite um Comando Válido!\n(Digite /menu para saber mais comandos)`});         

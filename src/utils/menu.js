@@ -42,6 +42,7 @@ function generateMenu(){
 
 ╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━
 ▢
+▢ /sobre => Informações sobre mim
 ▢ • Meu repositório: ${repo}
 ▢
 ╰━━─「🎇」─━━
