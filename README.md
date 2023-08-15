@@ -22,5 +22,7 @@ Bot Whatssap feito usando como base a API do Baileys <br>
 | /audio2 | Retorna um audio do Rodrigo Goes|
 | /musica | Baixa uma música do youtube (deve ser passado o link da música depois do comando) |
 | /cep | Busca dados de um CEP (deve ser passado o cep em formato númerico. EX: 79200000) |
+| /sobre | Retorna algumas informção básicas do bot |
+
 
 <img align="center" alt="exemplo do menu do bot" src="assets/example-menu-bot.png">
