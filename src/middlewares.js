@@ -26,6 +26,9 @@ async function middlewares(bot){
                 console.log('\n figurinhaaaa')
                 await actions.sticker();
                 break;
+            case 'cep':
+                await actions.consultCep(args);
+                break
             case 'musica':
             case 'música':
                 if (args) {

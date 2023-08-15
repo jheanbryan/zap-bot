@@ -37,7 +37,6 @@ class Actions{
                 return
             }
 
-            console.log('\n so falta eu mandar, pera ai')
             await this.bot.sendMessage(this.remoteJid, {
                 sticker: { url: outputPath },
             });
@@ -72,6 +71,37 @@ class Actions{
         } catch (error) {
             console.error('Erro ao baixar o áudio:', error);
         }
+
+    }
+
+    //Consulta de cep
+    async consultCep(cep){
+        fetch(`https://viacep.com.br/ws/01001000/json/`)
+        .then(response => response.json())
+        .then(data => {
+
+        var messageCep;
+        
+        if(data.localidade != ''){
+            messageCep = `Localidade: ${data.localidade}`
+        }
+        if (data.logradouro != ''){
+            messageCep = messageCep + `\nLogradouro: ${data.logradouro}`;
+        }
+        if(data.complemento != ''){
+            messageCep = messageCep + `\nComplemento: ${data.complemento}`;
+        }
+        if(data.bairro){
+            messageCep = messageCep + `\nBairro: ${data.bairro}`;
+        }
+        console.log(data)
+        console.log(messageCep)
+        this.bot.sendMessage(this.remoteJid, { text: `${messageCep}` });
+    }).catch(error => {
+        console.error("Ocorreu um erro:", error);
+        console.error("Erro:", error.response);
+    });
+        
 
     }
 }

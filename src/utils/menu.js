@@ -25,17 +25,18 @@ function generateMenu(){
 
 ╭━━⪩ COMANDOS GERAIS ℹ ⪨━━
 ▢
-▢ •/menu  => Menu geral de comandos
-▢ •/ping  => Testar se o bot está online
-▢ •/s     => Retorna uma figurinha ao marcar uma imagem
+▢ /menu  => Menu geral de comandos
+▢ /ping  => Testar se o bot está online
+▢ /s     => Retorna uma figurinha ao marcar uma imagem
+▢ /cep => Busca um cep 
 ▢
 ╰━━─「🚀」─━━
 
 ╭━━⪩ COMANDOS DE AUDIOS 🔊 ⪨━━
 ▢
-▢ •/audio1 => Bom dia HADUKEN
-▢ •/audio2 => Quem você pensa que é?
-▢ •/musica (link do youtube) => Baixa uma música do YouTube
+▢ /audio1 => Bom dia HADUKEN
+▢ /audio2 => Quem você pensa que é?
+▢ /musica (link do youtube) => Baixa uma música do YouTube
 ▢
 ╰━━─「🌍」─━━
 
