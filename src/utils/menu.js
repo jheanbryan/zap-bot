@@ -36,6 +36,7 @@ function generateMenu(){
 ▢ •/audio1 => Bom dia HADUKEN
 ▢ •/audio2 => Quem você pensa que é?
 ▢ •/musica (link do youtube) => Baixa uma música do YouTube
+▢
 ╰━━─「🌍」─━━
 
 ╭━━⪩ SOBRE MIM 👨‍💻 ⪨━━

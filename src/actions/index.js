@@ -7,7 +7,6 @@ const peg = 'C:/ffmpeg/bin/ffmpeg'; //caminho do ffmpeg no pc
 const ytdl = require('ytdl-core');
 
 class Actions{
-
     constructor(bot, baileysMessage) {
         const { remoteJid, args, isImage } = extractDataMessage(baileysMessage)
         this.bot = bot;
@@ -28,9 +27,8 @@ class Actions{
         const inputPath = await downloadImage(this.baileysMessage, 'input');
         const outputPath = path.resolve(TEMP_FOLDER, 'output.webp');
 
-        console.log('\n vou executar o exec agora')
         //falta fazer o tratamento de scale da figurinha
-        exec(`${peg} -i ${inputPath} -vf scale=512:512 ${outputPath}`, async (error)  =>{
+        exec(`${peg} -i ${inputPath} -vf scale=512:512:force_original_aspect_ratio=decrease,pad=512:512:(ow-iw)/2:(oh-ih)/2,format=rgba ${outputPath}`, async (error)  =>{
 
             if (error){
                 console.log('\n deu erro')
@@ -48,6 +46,7 @@ class Actions{
             fs.unlinkSync(outputPath);
         })
     }
+
 
     //Baixar musicas
     async downloadAudio(url) {
