@@ -29,6 +29,7 @@ function generateMenu(){
 ▢ /ping  => Testar se o bot está online
 ▢ /s     => Retorna uma figurinha ao marcar uma imagem
 ▢ /cep => Busca um cep 
+▢ /cnpj => Retorna informações do CNPJ que foi passado
 ▢
 ╰━━─「🚀」─━━
 

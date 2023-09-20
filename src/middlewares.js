@@ -23,7 +23,6 @@ async function middlewares(bot){
                 await bot.sendMessage(remoteJid, {text: `${menu}`});
                 break;
             case 's':
-                console.log('\n figurinhaaaa')
                 await actions.sticker();
                 break;
             case 'cep':
@@ -51,6 +50,9 @@ async function middlewares(bot){
                 break;
             case 'sobre':
                 await bot.sendMessage(remoteJid, { text: `Olá 🖐, Sou um bot desenvolvido a partir da linguagem JavaScript, ainda não possuo a capacidade de pensar e entender frases, mas posso te ajudar com algumas coisas, basta digitar: '/menu' para saber mais...`}); 
+                break;
+            case 'cnpj':
+                await actions.cnpj(args);
                 break;
             default:
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} Digite um Comando Válido!\n(Digite /menu para saber mais comandos)`});         

@@ -74,9 +74,10 @@ class Actions{
 
     }
 
+
     //Consulta de cep
     async consultCep(cep){
-        fetch(`https://viacep.com.br/ws/01001000/json/`)
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => response.json())
         .then(data => {
 
@@ -94,15 +95,28 @@ class Actions{
         if(data.bairro){
             messageCep = messageCep + `\nBairro: ${data.bairro}`;
         }
-        console.log(data)
-        console.log(messageCep)
         this.bot.sendMessage(this.remoteJid, { text: `${messageCep}` });
     }).catch(error => {
         console.error("Ocorreu um erro:", error);
         console.error("Erro:", error.response);
     });
-        
+    }
 
+
+    //Busca de CNPJ
+    async cnpj(cnpj){
+        fetch(`https://brasilapi.com.br/api/cnpj/v1/${cnpj}`)
+        .then(response => response.json())
+        .then(data => {
+
+        var messageCnpj;
+        
+        messageCnpj = `Nome: ${data.nome_fantasia}\n Local: ${data.municipio}, ${data.uf}\n Bairro: ${data.bairro} - nº ${data.numero}\n Telefone: ${data.ddd_telefone_1} `
+        this.bot.sendMessage(this.remoteJid, { text: `${messageCnpj}` });
+    }).catch(error => {
+        console.error("Ocorreu um erro:", error);
+        console.error("Erro:", error.response);
+    });
     }
 }
 
