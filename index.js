@@ -1,5 +1,5 @@
-const { connect } = require("./connection");
-const middlewares = require('./middlewares');
+const { connect } = require("./src/connection");
+const middlewares = require('./src/middlewares');
 
 async function start() {
   console.log('estartandoo\n')

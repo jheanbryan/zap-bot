@@ -46,33 +46,36 @@ class Actions{
         })
     }
 
+    //Baixa musicas
+    async downloadAudio(args) {
+        if (args) {
+            const videoURL = args;
+            console.log('URL:', videoURL);
 
-    //Baixar musicas
-    async downloadAudio(url) {
-        // URL do vídeo do YouTube
-        const videoURL = url;
-
-        // Opções para baixar apenas o áudio
-        const options = {
-            quality: 'highestaudio',
-            filter: 'audioonly',
-        };
-
-        try {
-            const info = await ytdl.getInfo(videoURL);
-            const title = info.videoDetails.title;
-            const audioStream = ytdl(videoURL, options);
-
-            audioStream.pipe(fs.createWriteStream(`music.mp3`));
-
-            audioStream.on('end', () => {
-            this.bot.sendMessage(this.remoteJid, { audio: { url: `./music.mp3` }, mimetype: 'audio/mp4' }); 
-            });
-        } catch (error) {
-            console.error('Erro ao baixar o áudio:', error);
-        }
-
+            const options = {
+                quality: 'highestaudio',
+                filter: 'audioonly',
+            };
+    
+            try {
+                const info = await ytdl.getInfo(videoURL);
+                const title = info.videoDetails.title;
+                const audioStream = ytdl(videoURL, options);
+    
+                audioStream.pipe(fs.createWriteStream(`music.mp3`));
+    
+                audioStream.on('end', () => {
+                this.bot.sendMessage(this.remoteJid, { audio: { url: `./music.mp3` }, mimetype: 'audio/mp4' }); 
+                });
+            } catch (error) {
+                console.error('Erro ao baixar o áudio:', error);
+            }
+            
+          } else {
+            this.bot.sendMessage(this.remoteJid, { text: `${BOT_EMOJI} Comando /musica requer uma URL válida.` });
+          }
     }
+
 
 
     //Consulta de cep
@@ -117,6 +120,11 @@ class Actions{
         console.error("Ocorreu um erro:", error);
         console.error("Erro:", error.response);
     });
+    }
+
+    //Exibir mensagem sobre o bot
+    async messageInfo(){
+        this.bot.sendMessage(this.remoteJid, { text: `Olá 🖐, Sou um bot desenvolvido a partir da linguagem JavaScript, ainda não possuo a capacidade de pensar e entender frases, mas posso te ajudar com algumas coisas, para saber mais digite o seguinte comando: /menu`});
     }
 }
 

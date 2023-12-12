@@ -57,9 +57,9 @@ async function downloadImage(baileysMessage, filename){
     for await (const chunk of stream){
         buffer = Buffer.concat([buffer, chunk]);
     }
-
     const filePath = path.resolve(TEMP_FOLDER, `${filename}.png`)
-
+    console.log(filePath)
+    console.log('obbbaaa')
     await writeFile(filePath, buffer);
 
     return filePath

@@ -30,14 +30,7 @@ async function middlewares(bot){
                 break;
             case 'musica':
             case 'música':
-                if (args) {
-                    const url = args;
-                    // Lógica para processar a URL, como baixar música ou qualquer outra ação
-                    console.log('URL:', url);
-                    await actions.downloadAudio(url);
-                  } else {
-                    await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} Comando /musica requer uma URL válida.` });
-                  }
+                await actions.downloadAudio(args);
                 break;
             case 'ping':
                 await bot.sendMessage(remoteJid, { text: `${BOT_EMOJI} pong!`});
@@ -49,7 +42,7 @@ async function middlewares(bot){
                 await bot.sendMessage(remoteJid, { audio: { url: "./assets/audios/audio2.mp3" }, mimetype: 'audio/mp4' });
                 break;
             case 'sobre':
-                await bot.sendMessage(remoteJid, { text: `Olá 🖐, Sou um bot desenvolvido a partir da linguagem JavaScript, ainda não possuo a capacidade de pensar e entender frases, mas posso te ajudar com algumas coisas, basta digitar: '/menu' para saber mais...`}); 
+                  await actions.messageInfo();
                 break;
             case 'cnpj':
                 await actions.cnpj(args);
